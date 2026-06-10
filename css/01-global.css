@@ -17,48 +17,48 @@
    Zentrale Änderung hier wirkt auf alle Komponenten.
    ────────────────────────────────────────── */
 :root {
-    /* Farb-Palette */
-    --g-color-primary:        #E67E22;
-    --g-color-primary-dark:   #CF6D17;
-    --g-color-primary-alpha:  rgba(230, 126, 34, 0.12);
-    --g-color-primary-shadow: rgba(230, 126, 34, 0.35);
-    --g-color-primary-shadow-hover: rgba(230, 126, 34, 0.45);
+    /* Farb-Palette – Seriös & Handwerk */
+    --g-color-primary:        #FF6B35;
+    --g-color-primary-dark:   #E55A25;
+    --g-color-primary-alpha:  rgba(255, 107, 53, 0.10);
+    --g-color-primary-shadow: rgba(255, 107, 53, 0.25);
+    --g-color-primary-shadow-hover: rgba(255, 107, 53, 0.35);
 
-    --g-color-dark:           #2C3E50;
-    --g-color-dark-mid:       #34495E;
-    --g-color-text-body:      #5D6D7E;
-    --g-color-text-muted:     #95A5A6;
-    --g-color-danger:         #E74C3C;
+    --g-color-dark:           #2A2D34;
+    --g-color-dark-mid:       #3D4148;
+    --g-color-text-body:      #6B7280;
+    --g-color-text-muted:     #9CA3AF;
+    --g-color-danger:         #DC2626;
 
     --g-color-bg-white:       #FFFFFF;
-    --g-color-bg-light:       #F8F9FA;
-    --g-color-bg-card:        #FDFEFE;
-    --g-color-bg-dark:        #1A252F;
+    --g-color-bg-light:       #F9FAFB;
+    --g-color-bg-card:        #FFFFFF;
+    --g-color-bg-dark:        #1E2024;
 
-    --g-color-border:         rgba(44, 62, 80, 0.07);
-    --g-color-border-light:   rgba(44, 62, 80, 0.06);
-    --g-color-border-pale:    rgba(44, 62, 80, 0.08);
+    --g-color-border:         rgba(42, 45, 52, 0.08);
+    --g-color-border-light:   rgba(42, 45, 52, 0.06);
+    --g-color-border-pale:    rgba(42, 45, 52, 0.10);
 
     /* Typografie */
     --g-font-family:          'Roboto', Arial, Helvetica, sans-serif;
     --g-font-size-base:       16px;
     --g-line-height-base:     1.7;
 
-    /* Abstände */
-    --g-radius-sm:            6px;
-    --g-radius-md:            8px;
-    --g-radius-lg:            12px;
-    --g-radius-xl:            16px;
+    /* Abstände – bewusst kantig, nicht bubbly */
+    --g-radius-sm:            4px;
+    --g-radius-md:            6px;
+    --g-radius-lg:            8px;
+    --g-radius-xl:            8px;
     --g-radius-full:          50px;
 
     /* Transitions */
-    --g-transition-fast:      0.2s ease;
-    --g-transition-base:      0.3s ease;
-    --g-transition-slow:      0.7s ease-out;
+    --g-transition-fast:      0.15s ease;
+    --g-transition-base:      0.25s ease;
+    --g-transition-slow:      0.5s ease-out;
 
-    /* Schatten */
-    --g-shadow-card:          0 12px 40px rgba(44, 62, 80, 0.10);
-    --g-shadow-strong:        0 25px 60px rgba(44, 62, 80, 0.15);
+    /* Schatten – dezent, nicht dramatisch */
+    --g-shadow-card:          0 4px 16px rgba(42, 45, 52, 0.08);
+    --g-shadow-strong:        0 8px 30px rgba(42, 45, 52, 0.10);
 }
 
 /* ──────────────────────────────────────────
@@ -110,7 +110,7 @@ a {
     padding: 0 20px;
 }
 
-/* Primär-Button */
+/* Primär-Button – NUR für Call-to-Action */
 .g-btn-primary {
     display: inline-block;
     background-color: var(--g-color-primary);
@@ -127,14 +127,14 @@ a {
         transform var(--g-transition-fast),
         box-shadow var(--g-transition-base);
     text-align: center;
-    letter-spacing: 0.02em;
-    box-shadow: 0 4px 15px var(--g-color-primary-shadow);
+    letter-spacing: 0.01em;
+    box-shadow: 0 2px 8px var(--g-color-primary-shadow);
 }
 
 .g-btn-primary:hover {
     background-color: var(--g-color-primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px var(--g-color-primary-shadow-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px var(--g-color-primary-shadow-hover);
 }
 
 .g-btn-primary:active {
@@ -145,48 +145,48 @@ a {
 .g-btn-secondary {
     display: inline-block;
     background-color: transparent;
-    color: var(--g-color-primary);
+    color: var(--g-color-dark);
     font-family: var(--g-font-family);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.875rem;
     padding: 10px 22px;
     border-radius: var(--g-radius-sm);
-    border: 2px solid var(--g-color-primary);
+    border: 2px solid var(--g-color-dark);
     cursor: pointer;
     transition: all var(--g-transition-base);
     text-align: center;
 }
 
 .g-btn-secondary:hover {
-    background-color: var(--g-color-primary);
+    background-color: var(--g-color-dark);
     color: var(--g-color-bg-white);
 }
 
 /* Abschnitts-Typografie (geteilt zwischen Komponenten) */
 .g-section-label {
     display: inline-block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--g-color-primary);
+    letter-spacing: 0.18em;
+    color: var(--g-color-text-muted);
     margin-bottom: 12px;
 }
 
 .g-section-title {
     font-size: 2rem;
-    font-weight: 900;
+    font-weight: 800;
     line-height: 1.2;
     color: var(--g-color-dark);
     margin-bottom: 20px;
 }
 
 .g-section-subtitle {
-    font-size: 1.1rem;
-    font-weight: 300;
+    font-size: 1.05rem;
+    font-weight: 400;
     color: var(--g-color-text-body);
     max-width: 650px;
-    line-height: 1.8;
+    line-height: 1.75;
 }
 
 /* ──────────────────────────────────────────

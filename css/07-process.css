@@ -8,8 +8,6 @@
  *          Kreise, Step-Content.
  *
  * CSS-ISOLATION: Alle Klassen tragen den Präfix "prc-".
- *                Kein Style überschreibt globale oder andere
- *                Komponenten-Klassen.
  *
  * Abhängigkeiten:
  *   - var(--g-*) aus 01-global.css
@@ -31,7 +29,7 @@
    ────────────────────────────────────────── */
 .prc-header {
     text-align: center;
-    margin-bottom: 56px;
+    margin-bottom: 48px;
 }
 
 .prc-header .g-section-subtitle {
@@ -45,7 +43,7 @@
 .prc-steps {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
     position: relative;
 }
 
@@ -54,29 +52,28 @@
    ────────────────────────────────────────── */
 .prc-step {
     display: flex;
-    gap: 24px;
+    gap: 20px;
     align-items: flex-start;
 }
 
-/* Nummerierter Kreis */
+/* Nummerierter Kreis – solides Anthrazit, kein Gradient */
 .prc-step__number {
     flex-shrink: 0;
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #2C3E50, #34495E);
+    background-color: var(--g-color-dark);
     color: var(--g-color-bg-white);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 900;
-    font-size: 1.15rem;
-    box-shadow: 0 4px 15px rgba(44, 62, 80, 0.25);
+    font-weight: 800;
+    font-size: 1.1rem;
 }
 
 /* Text-Bereich */
 .prc-step__content h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--g-color-dark);
     margin-bottom: 6px;
@@ -86,7 +83,7 @@
     font-size: 0.92rem;
     color: var(--g-color-text-body);
     line-height: 1.7;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 /* ──────────────────────────────────────────
@@ -95,7 +92,7 @@
 @media (min-width: 768px) {
     .prc-steps {
         grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
+        gap: 36px;
     }
 
     /* Auf Tablet: Schritte vertikal zentriert */
@@ -111,6 +108,6 @@
    ────────────────────────────────────────── */
 @media (min-width: 1024px) {
     .prc-section {
-        padding: 100px 0;
+        padding: 96px 0;
     }
 }

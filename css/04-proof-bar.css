@@ -3,12 +3,9 @@
  * BLOCK 4: SOCIAL PROOF BAR
  * Datei: css/04-proof-bar.css
  *
- * Enthält: Kennzahlen-Leiste mit 3 Statistiken
- *          (Optimierte Websites, Kundenzufriedenheit, Rankings).
+ * Enthält: Kennzahlen-Leiste mit 3 Statistiken.
  *
  * CSS-ISOLATION: Alle Klassen tragen den Präfix "proof-".
- *                Kein Style überschreibt globale oder andere
- *                Komponenten-Klassen.
  *
  * Abhängigkeiten:
  *   - var(--g-*) aus 01-global.css
@@ -20,8 +17,9 @@
    PROOF BAR – SECTION WRAPPER
    ────────────────────────────────────────── */
 .proof-bar-section {
-    padding: 40px 0;
+    padding: 32px 0;
     border-bottom: 1px solid var(--g-color-border-light);
+    background-color: var(--g-color-bg-light);
 }
 
 /* ──────────────────────────────────────────
@@ -37,7 +35,7 @@
 
 /* Optionaler Label-Text */
 .proof-bar__text {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: var(--g-color-text-muted);
     text-transform: uppercase;
@@ -58,16 +56,16 @@
 }
 
 .proof-bar__stat-number {
-    font-size: 1.8rem;
-    font-weight: 900;
+    font-size: 1.6rem;
+    font-weight: 800;
     color: var(--g-color-dark);
-    /* Wird per JS count-up befüllt – kein overflow: hidden nötig */
 }
 
 .proof-bar__stat-label {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     color: var(--g-color-text-muted);
     font-weight: 400;
+    margin-top: 2px;
 }
 
 /* ──────────────────────────────────────────
@@ -77,6 +75,6 @@
     .proof-bar__inner {
         flex-direction: row;
         justify-content: center;
-        gap: 50px;
+        gap: 56px;
     }
 }

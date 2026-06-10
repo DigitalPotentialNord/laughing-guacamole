@@ -18,6 +18,7 @@
 
 /* ──────────────────────────────────────────
    HEADER – WRAPPER
+   Solider weißer Hintergrund, kein Blur-Effekt.
    ────────────────────────────────────────── */
 .hdr-header {
     position: fixed;
@@ -25,16 +26,14 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background-color: #FFFFFF;
     border-bottom: 1px solid var(--g-color-border-pale);
     transition: box-shadow var(--g-transition-base);
 }
 
-/* Scroll-State: Shadow erscheint nach JS-Klasse */
+/* Scroll-State: Dezenter Shadow */
 .hdr-header.hdr-is-scrolled {
-    box-shadow: 0 2px 20px rgba(44, 62, 80, 0.10);
+    box-shadow: 0 1px 8px rgba(42, 45, 52, 0.08);
 }
 
 /* ──────────────────────────────────────────
@@ -44,15 +43,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 72px;
+    height: 64px;
 }
 
 /* ──────────────────────────────────────────
    LOGO
    ────────────────────────────────────────── */
 .hdr-logo {
-    font-size: 1.05rem;
-    font-weight: 900;
+    font-size: 1rem;
+    font-weight: 700;
     color: var(--g-color-dark);
     display: flex;
     align-items: center;
@@ -61,17 +60,18 @@
 }
 
 .hdr-logo__icon {
-    width: 36px;
-    height: 36px;
-    background-color: var(--g-color-primary);
-    border-radius: var(--g-radius-md);
+    width: 34px;
+    height: 34px;
+    background-color: var(--g-color-dark);
+    border-radius: var(--g-radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--g-color-bg-white);
-    font-weight: 900;
-    font-size: 1.1rem;
+    font-weight: 800;
+    font-size: 0.85rem;
     flex-shrink: 0;
+    letter-spacing: 0.02em;
 }
 
 /* Markenname – auf Mobile ausgeblendet */

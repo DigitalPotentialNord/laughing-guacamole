@@ -1,0 +1,203 @@
+/*
+ * ============================================================
+ * BLOCK 1: GLOBAL / HEAD
+ * Datei: css/01-global.css
+ *
+ * Enthält: CSS Reset, Design-Tokens (Farben, Typografie),
+ *          globale Basis-Styles und wiederverwendbare Utilities.
+ *
+ * SCOPE-REGEL: Nur element-selektoren (html, body, img, a) und
+ *              explizit als global gekennzeichnete Klassen.
+ *              Niemals Komponenten-spezifische Klassen hier.
+ * ============================================================
+ */
+
+/* ──────────────────────────────────────────
+   CSS DESIGN TOKENS (Custom Properties)
+   Zentrale Änderung hier wirkt auf alle Komponenten.
+   ────────────────────────────────────────── */
+:root {
+    /* Farb-Palette */
+    --g-color-primary:        #E67E22;
+    --g-color-primary-dark:   #CF6D17;
+    --g-color-primary-alpha:  rgba(230, 126, 34, 0.12);
+    --g-color-primary-shadow: rgba(230, 126, 34, 0.35);
+    --g-color-primary-shadow-hover: rgba(230, 126, 34, 0.45);
+
+    --g-color-dark:           #2C3E50;
+    --g-color-dark-mid:       #34495E;
+    --g-color-text-body:      #5D6D7E;
+    --g-color-text-muted:     #95A5A6;
+    --g-color-danger:         #E74C3C;
+
+    --g-color-bg-white:       #FFFFFF;
+    --g-color-bg-light:       #F8F9FA;
+    --g-color-bg-card:        #FDFEFE;
+    --g-color-bg-dark:        #1A252F;
+
+    --g-color-border:         rgba(44, 62, 80, 0.07);
+    --g-color-border-light:   rgba(44, 62, 80, 0.06);
+    --g-color-border-pale:    rgba(44, 62, 80, 0.08);
+
+    /* Typografie */
+    --g-font-family:          'Roboto', Arial, Helvetica, sans-serif;
+    --g-font-size-base:       16px;
+    --g-line-height-base:     1.7;
+
+    /* Abstände */
+    --g-radius-sm:            6px;
+    --g-radius-md:            8px;
+    --g-radius-lg:            12px;
+    --g-radius-xl:            16px;
+    --g-radius-full:          50px;
+
+    /* Transitions */
+    --g-transition-fast:      0.2s ease;
+    --g-transition-base:      0.3s ease;
+    --g-transition-slow:      0.7s ease-out;
+
+    /* Schatten */
+    --g-shadow-card:          0 12px 40px rgba(44, 62, 80, 0.10);
+    --g-shadow-strong:        0 25px 60px rgba(44, 62, 80, 0.15);
+}
+
+/* ──────────────────────────────────────────
+   RESET & NORMALISIERUNG
+   ────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: var(--g-font-size-base);
+}
+
+body {
+    font-family: var(--g-font-family);
+    color: var(--g-color-dark);
+    background-color: var(--g-color-bg-white);
+    line-height: var(--g-line-height-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ──────────────────────────────────────────
+   GLOBALE UTILITIES
+   Präfix: g- (global) – kollidiert nie mit Komponenten
+   ────────────────────────────────────────── */
+
+/* Layout-Container */
+.g-container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Primär-Button */
+.g-btn-primary {
+    display: inline-block;
+    background-color: var(--g-color-primary);
+    color: var(--g-color-bg-white);
+    font-family: var(--g-font-family);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 16px 32px;
+    border-radius: var(--g-radius-sm);
+    border: none;
+    cursor: pointer;
+    transition:
+        background-color var(--g-transition-base),
+        transform var(--g-transition-fast),
+        box-shadow var(--g-transition-base);
+    text-align: center;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 15px var(--g-color-primary-shadow);
+}
+
+.g-btn-primary:hover {
+    background-color: var(--g-color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px var(--g-color-primary-shadow-hover);
+}
+
+.g-btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Sekundär-Button */
+.g-btn-secondary {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--g-color-primary);
+    font-family: var(--g-font-family);
+    font-weight: 700;
+    font-size: 0.875rem;
+    padding: 10px 22px;
+    border-radius: var(--g-radius-sm);
+    border: 2px solid var(--g-color-primary);
+    cursor: pointer;
+    transition: all var(--g-transition-base);
+    text-align: center;
+}
+
+.g-btn-secondary:hover {
+    background-color: var(--g-color-primary);
+    color: var(--g-color-bg-white);
+}
+
+/* Abschnitts-Typografie (geteilt zwischen Komponenten) */
+.g-section-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--g-color-primary);
+    margin-bottom: 12px;
+}
+
+.g-section-title {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--g-color-dark);
+    margin-bottom: 20px;
+}
+
+.g-section-subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--g-color-text-body);
+    max-width: 650px;
+    line-height: 1.8;
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE – TABLET (768px+)
+   ────────────────────────────────────────── */
+@media (min-width: 768px) {
+    .g-container {
+        padding: 0 40px;
+    }
+
+    .g-section-title {
+        font-size: 2.4rem;
+    }
+}

@@ -1,0 +1,89 @@
+/*
+ * ============================================================
+ * BLOCK 2: HEADER / NAVIGATION
+ * Datei: css/02-header.css
+ *
+ * Enthält: Sticky Navigation, Logo, CTA-Button im Header.
+ *
+ * CSS-ISOLATION: Alle Klassen tragen den Präfix "hdr-".
+ *                Keine Klasse in dieser Datei überschreibt
+ *                globale Selektoren oder andere Komponenten.
+ *
+ * Abhängigkeiten:
+ *   - var(--g-*) aus 01-global.css
+ *   - .g-container aus 01-global.css
+ *   - .g-btn-secondary aus 01-global.css
+ * ============================================================
+ */
+
+/* ──────────────────────────────────────────
+   HEADER – WRAPPER
+   ────────────────────────────────────────── */
+.hdr-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--g-color-border-pale);
+    transition: box-shadow var(--g-transition-base);
+}
+
+/* Scroll-State: Shadow erscheint nach JS-Klasse */
+.hdr-header.hdr-is-scrolled {
+    box-shadow: 0 2px 20px rgba(44, 62, 80, 0.10);
+}
+
+/* ──────────────────────────────────────────
+   HEADER – INNERES LAYOUT
+   ────────────────────────────────────────── */
+.hdr-header .g-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+}
+
+/* ──────────────────────────────────────────
+   LOGO
+   ────────────────────────────────────────── */
+.hdr-logo {
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: var(--g-color-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.hdr-logo__icon {
+    width: 36px;
+    height: 36px;
+    background-color: var(--g-color-primary);
+    border-radius: var(--g-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--g-color-bg-white);
+    font-weight: 900;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* Markenname – auf Mobile ausgeblendet */
+.hdr-logo__name {
+    display: none;
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE – TABLET (768px+)
+   ────────────────────────────────────────── */
+@media (min-width: 768px) {
+    .hdr-logo__name {
+        display: inline;
+    }
+}

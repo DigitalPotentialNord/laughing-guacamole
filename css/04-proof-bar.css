@@ -1,0 +1,82 @@
+/*
+ * ============================================================
+ * BLOCK 4: SOCIAL PROOF BAR
+ * Datei: css/04-proof-bar.css
+ *
+ * Enthält: Kennzahlen-Leiste mit 3 Statistiken
+ *          (Optimierte Websites, Kundenzufriedenheit, Rankings).
+ *
+ * CSS-ISOLATION: Alle Klassen tragen den Präfix "proof-".
+ *                Kein Style überschreibt globale oder andere
+ *                Komponenten-Klassen.
+ *
+ * Abhängigkeiten:
+ *   - var(--g-*) aus 01-global.css
+ *   - .g-container aus 01-global.css
+ * ============================================================
+ */
+
+/* ──────────────────────────────────────────
+   PROOF BAR – SECTION WRAPPER
+   ────────────────────────────────────────── */
+.proof-bar-section {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--g-color-border-light);
+}
+
+/* ──────────────────────────────────────────
+   PROOF BAR – INNER LAYOUT
+   ────────────────────────────────────────── */
+.proof-bar__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+/* Optionaler Label-Text */
+.proof-bar__text {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--g-color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ──────────────────────────────────────────
+   PROOF BAR – STATISTIK-GRID
+   ────────────────────────────────────────── */
+.proof-bar__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.proof-bar__stat {
+    text-align: center;
+}
+
+.proof-bar__stat-number {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--g-color-dark);
+    /* Wird per JS count-up befüllt – kein overflow: hidden nötig */
+}
+
+.proof-bar__stat-label {
+    font-size: 0.78rem;
+    color: var(--g-color-text-muted);
+    font-weight: 400;
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE – TABLET (768px+)
+   ────────────────────────────────────────── */
+@media (min-width: 768px) {
+    .proof-bar__inner {
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+    }
+}

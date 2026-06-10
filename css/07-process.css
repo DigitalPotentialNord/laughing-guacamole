@@ -1,0 +1,116 @@
+/*
+ * ============================================================
+ * BLOCK 7: PROCESS SECTION (3-Schritte)
+ * Datei: css/07-process.css
+ *
+ * Enthält: Section-Wrapper, zentrierter Header,
+ *          3-Spalten-Grid der Prozessschritte, nummerierte
+ *          Kreise, Step-Content.
+ *
+ * CSS-ISOLATION: Alle Klassen tragen den Präfix "prc-".
+ *                Kein Style überschreibt globale oder andere
+ *                Komponenten-Klassen.
+ *
+ * Abhängigkeiten:
+ *   - var(--g-*) aus 01-global.css
+ *   - .g-container, .g-section-label, .g-section-title,
+ *     .g-section-subtitle aus 01-global.css
+ * ============================================================
+ */
+
+/* ──────────────────────────────────────────
+   PROCESS – SECTION WRAPPER
+   ────────────────────────────────────────── */
+.prc-section {
+    padding: 80px 0;
+    background-color: var(--g-color-bg-white);
+}
+
+/* ──────────────────────────────────────────
+   PROCESS – HEADER
+   ────────────────────────────────────────── */
+.prc-header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.prc-header .g-section-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ──────────────────────────────────────────
+   PROCESS – STEPS GRID
+   ────────────────────────────────────────── */
+.prc-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    position: relative;
+}
+
+/* ──────────────────────────────────────────
+   PROCESS – EINZELNER SCHRITT
+   ────────────────────────────────────────── */
+.prc-step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+/* Nummerierter Kreis */
+.prc-step__number {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2C3E50, #34495E);
+    color: var(--g-color-bg-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 15px rgba(44, 62, 80, 0.25);
+}
+
+/* Text-Bereich */
+.prc-step__content h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--g-color-dark);
+    margin-bottom: 6px;
+}
+
+.prc-step__content p {
+    font-size: 0.92rem;
+    color: var(--g-color-text-body);
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE – TABLET (768px+)
+   ────────────────────────────────────────── */
+@media (min-width: 768px) {
+    .prc-steps {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+
+    /* Auf Tablet: Schritte vertikal zentriert */
+    .prc-step {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE – DESKTOP (1024px+)
+   ────────────────────────────────────────── */
+@media (min-width: 1024px) {
+    .prc-section {
+        padding: 100px 0;
+    }
+}

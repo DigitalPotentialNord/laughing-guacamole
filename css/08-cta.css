@@ -1,0 +1,109 @@
+/*
+ * ============================================================
+ * BLOCK 8: CTA SECTION
+ * Datei: css/08-cta.css
+ *
+ * Enthält: Dark-Gradient-Hintergrund, dekorativer Blob,
+ *          zentrierter Call-to-Action-Bereich.
+ *
+ * CSS-ISOLATION: Alle Klassen tragen den Präfix "cta-".
+ *                Kein Style überschreibt globale oder andere
+ *                Komponenten-Klassen.
+ *
+ * Abhängigkeiten:
+ *   - var(--g-*) aus 01-global.css
+ *   - .g-container, .g-section-label, .g-btn-primary
+ *     aus 01-global.css
+ * ============================================================
+ */
+
+/* ──────────────────────────────────────────
+   CTA – SECTION WRAPPER
+   ────────────────────────────────────────── */
+.cta-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #2C3E50 0%, #1A252F 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dekorativer Hintergrund-Blob oben rechts */
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(230, 126, 34, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* ──────────────────────────────────────────
+   CTA – CONTENT
+   ────────────────────────────────────────── */
+.cta-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Section-Label – Farbe auf hellem Hintergrund nicht sichtbar,
+   daher explizit überschrieben (nur innerhalb dieser Komponente) */
+.cta-content .g-section-label {
+    color: var(--g-color-primary);
+}
+
+/* ──────────────────────────────────────────
+   CTA – TYPOGRAFIE
+   ────────────────────────────────────────── */
+.cta-content__title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--g-color-bg-white);
+    margin-bottom: 18px;
+    line-height: 1.25;
+}
+
+.cta-content__text {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.70);
+    font-weight: 300;
+    margin-bottom: 36px;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+/* Primärbutton – in diesem Dark-Kontext etwas größer */
+.cta-content .g-btn-primary {
+    font-size: 1.1rem;
+    padding: 20px 42px;
+}
+
+/* Disclaimer-Zeile unter dem Button */
+.cta-content__note {
+    margin-top: 18px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.40);
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE – TABLET (768px+)
+   ────────────────────────────────────────── */
+@media (min-width: 768px) {
+    .cta-content__title {
+        font-size: 2.2rem;
+    }
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE – DESKTOP (1024px+)
+   ────────────────────────────────────────── */
+@media (min-width: 1024px) {
+    .cta-section {
+        padding: 100px 0;
+    }
+}

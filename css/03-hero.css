@@ -1,0 +1,273 @@
+/*
+ * ============================================================
+ * BLOCK 3: HERO SECTION
+ * Datei: css/03-hero.css
+ *
+ * Enthält: Hero-Wrapper, Grid-Layout, Badge, Headline,
+ *          Beschreibung, CTA-Gruppe, Trust-Line,
+ *          Hero-Bild-Wrapper mit Stat-Card.
+ *
+ * CSS-ISOLATION: Alle Klassen tragen den Präfix "hero-".
+ *                Kein Style greift auf globale oder andere
+ *                Komponenten-Klassen über.
+ *
+ * Abhängigkeiten:
+ *   - var(--g-*) aus 01-global.css
+ *   - .g-container aus 01-global.css
+ *   - .g-btn-primary aus 01-global.css
+ * ============================================================
+ */
+
+/* ──────────────────────────────────────────
+   HERO – SECTION WRAPPER
+   ────────────────────────────────────────── */
+.hero-section {
+    padding: 120px 0 80px;
+    background: linear-gradient(165deg, #FFFFFF 0%, #F8F9FA 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dekoratives Hintergrund-Blob */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(230, 126, 34, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-section .g-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ──────────────────────────────────────────
+   HERO – GRID
+   ────────────────────────────────────────── */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* ──────────────────────────────────────────
+   HERO – CONTENT (Links)
+   ────────────────────────────────────────── */
+.hero-content {
+    text-align: center;
+}
+
+/* Badge-Pill oben */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(230, 126, 34, 0.10);
+    color: var(--g-color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: var(--g-radius-full);
+    margin-bottom: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* Pulsierender Punkt im Badge */
+.hero-badge__dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--g-color-primary);
+    border-radius: 50%;
+    animation: hero-pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes hero-pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(1.4); }
+}
+
+/* Hauptüberschrift */
+.hero-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--g-color-dark);
+    margin-bottom: 24px;
+}
+
+.hero-title__highlight {
+    color: var(--g-color-primary);
+    position: relative;
+}
+
+/* Untertext */
+.hero-description {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--g-color-text-body);
+    line-height: 1.85;
+    margin-bottom: 36px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CTA-Gruppe */
+.hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+/* Primärbutton in der Hero-CTA – spezifisch breiter */
+.hero-cta-group .g-btn-primary {
+    font-size: 1.05rem;
+    padding: 18px 36px;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Trust-Zeile */
+.hero-trust {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--g-color-text-muted);
+    margin-top: 8px;
+}
+
+.hero-trust svg {
+    flex-shrink: 0;
+}
+
+/* ──────────────────────────────────────────
+   HERO – BILD (Rechts)
+   ────────────────────────────────────────── */
+
+/* Auf Mobile unsichtbar, auf Desktop sichtbar */
+.hero-image {
+    display: none;
+}
+
+.hero-image__wrapper {
+    position: relative;
+    border-radius: var(--g-radius-xl);
+    overflow: hidden;
+    box-shadow: var(--g-shadow-strong);
+}
+
+.hero-image__wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Statistik-Karte über dem Bild */
+.hero-stat-card {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: var(--g-radius-lg);
+    padding: 16px 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.hero-stat-card__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background-color: var(--g-color-primary-alpha);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.hero-stat-card__number {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--g-color-dark);
+    line-height: 1;
+}
+
+.hero-stat-card__label {
+    font-size: 0.72rem;
+    color: var(--g-color-text-muted);
+    font-weight: 500;
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE – TABLET (768px+)
+   ────────────────────────────────────────── */
+@media (min-width: 768px) {
+    .hero-section {
+        padding: 140px 0 100px;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-description {
+        font-size: 1.15rem;
+    }
+
+    .hero-cta-group {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .hero-cta-group .g-btn-primary {
+        width: auto;
+    }
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE – DESKTOP (1024px+)
+   ────────────────────────────────────────── */
+@media (min-width: 1024px) {
+    .hero-section {
+        padding: 160px 0 120px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+    }
+
+    .hero-content {
+        text-align: left;
+    }
+
+    .hero-title {
+        font-size: 3.2rem;
+    }
+
+    .hero-description {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .hero-cta-group {
+        justify-content: flex-start;
+    }
+
+    .hero-image {
+        display: block;
+    }
+}
